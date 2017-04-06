@@ -1,0 +1,20 @@
+
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+	compile ('commons-lang:commons-lang:2.6','org.slf4j:slf4j-api:1.7.21')
+    testCompile 'junit:junit:4.12'
+}
+
+task runLibrary(type: JavaExec){
+	main = "Library"
+	classpath = sourceSets.main.runtimeClasspath
+}
+
+task wrapper(type : Wrapper){
+	gradleVersion = '2.0'
+}

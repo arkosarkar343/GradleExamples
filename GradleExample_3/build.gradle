@@ -1,0 +1,18 @@
+task world << {
+	println "world"
+}
+
+task hello  {
+	dependsOn << world
+	doLast {
+		println "hello"
+	}
+	
+}
+
+task hello1 {
+	dependsOn = [hello, world]
+	doLast {
+		println 'Hello from 1'
+	}
+}

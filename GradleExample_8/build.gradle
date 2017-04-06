@@ -1,0 +1,16 @@
+apply plugin: MyCustomPlugin
+
+apply plugin: 'java'
+
+jar.version = "abc"
+
+class MyCustomPlugin implements Plugin<Project> {
+	void apply (Project project){
+		project.task('hello'){
+			doLast {
+				println "This is my custom plugin" + project.jar.version
+			}
+		}
+	}
+}
+

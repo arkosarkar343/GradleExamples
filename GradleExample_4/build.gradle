@@ -1,0 +1,20 @@
+
+repositories {
+	mavenCentral()
+}
+
+apply plugin : 'java'
+
+jar.version = 0.1
+
+dependencies {
+	testCompile 'junit:junit:4+'
+}
+
+jar {
+	manifest {
+		attributes 'Main-Class' : 'Library'
+	}
+	baseName = 'MyUtil'
+}
+

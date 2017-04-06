@@ -1,0 +1,40 @@
+allprojects{
+	apply plugin: "java"
+	task hello {
+		doLast{
+			println "I am from "+ project.name
+		}
+		
+	}
+}
+subprojects{
+  repositories {
+      jcenter()
+  }
+}
+
+project(':app'){
+	dependencies{
+		compile project(':common')
+		testCompile 'junit:junit:4.12'
+	}
+	task runLibrary(type: JavaExec){
+		main = "MyApplication"
+		classpath = sourceSets.main.runtimeClasspath
+	}
+}
+
+
+project(':common'){
+	dependencies{
+		compile project(':utils')
+		testCompile 'junit:junit:4.12'
+	}
+}
+
+project(':utils'){
+	dependencies{
+		compile 'commons-lang:commons-lang:2.6'	
+	}
+}
+

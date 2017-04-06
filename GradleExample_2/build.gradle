@@ -1,0 +1,17 @@
+def callme() {
+	println 'Groovy is chanting OMMMM!!'
+}
+
+task startSession << {
+	callme()
+}
+
+task sing {
+		doLast {
+			3.times {
+			 println 'Gradle can sing ... '	
+			}
+			
+		}
+		
+	}

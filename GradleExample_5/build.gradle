@@ -1,0 +1,15 @@
+apply plugin : 'java'
+
+repositories {
+	jcenter()
+}
+
+dependencies {
+	compile 'commons-lang:commons-lang:2+'
+	testCompile 'junit:junit:4+'
+}
+
+task runLib(type: JavaExec) {
+	main = "Library"
+	classpath = sourceSets.main.runtimeClasspath
+}

@@ -1,0 +1,10 @@
+apply plugin: 'java'
+
+jar.version = "abc"
+
+task myTest {
+	doLast {
+		def file = new File("abc.txt").getText();
+		println(file);
+	}
+}
